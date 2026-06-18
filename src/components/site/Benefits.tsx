@@ -1,4 +1,5 @@
 import { Heart, UserRound, Users, Sparkles } from "lucide-react";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 const benefits = [
   {
@@ -36,19 +37,21 @@ export function Benefits() {
           <span className="text-xs uppercase tracking-[0.2em] text-sage-deep block mb-4">
             Por que fazer terapia
           </span>
-          <h2 className="text-3xl md:text-5xl font-light leading-tight">
-            Um caminho de transformação para a sua vida.
-          </h2>
+          <BlurFade>
+            <h2 className="text-3xl md:text-5xl font-light leading-tight">
+              Um caminho de transformação para a sua vida.
+            </h2>
+          </BlurFade>
         </div>
 
         {/* Cards grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {benefits.map((item) => (
-            <div
-              key={item.title}
-              className="group relative rounded-[2rem] bg-card border border-border/50 p-8 md:p-10 flex flex-col"
-              style={{ boxShadow: "var(--shadow-soft)" }}
-            >
+          {benefits.map((item, i) => (
+            <BlurFade key={item.title} delay={i * 0.1} className="h-full">
+              <div
+                className="group relative rounded-[2rem] bg-card border border-border/50 p-8 md:p-10 flex flex-col h-full"
+                style={{ boxShadow: "var(--shadow-soft)" }}
+              >
               {/* Icon */}
               <div className="mb-7 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-sage-soft/40 text-sage-deep">
                 <item.icon size={22} strokeWidth={1.5} />
@@ -67,7 +70,8 @@ export function Benefits() {
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-1 rounded-b-[2rem] bg-gradient-to-r from-sage-soft to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />
-            </div>
+              </div>
+            </BlurFade>
           ))}
         </div>
       </div>

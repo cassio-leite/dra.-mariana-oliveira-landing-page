@@ -1,4 +1,5 @@
 import portrait from "@/assets/mariana-portrait.jpg";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 export function About() {
   return (
@@ -6,9 +7,11 @@ export function About() {
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-12 gap-12 lg:gap-20 items-start">
         <div className="md:col-span-7 md:pt-10 space-y-7">
           <span className="text-xs uppercase tracking-[0.2em] text-sage-deep">Sobre mim</span>
-          <h2 className="text-3xl md:text-5xl font-light leading-tight">
-            Há mais de 12 anos acompanhando pessoas em momentos de transformação.
-          </h2>
+          <BlurFade>
+            <h2 className="text-3xl md:text-5xl font-light leading-tight">
+              Há mais de 12 anos acompanhando pessoas em momentos de transformação.
+            </h2>
+          </BlurFade>
           <div className="space-y-4 text-muted-foreground leading-relaxed md:pr-8">
             <p>
               Sou Mariana Oliveira, psicóloga clínica formada pela USP, com

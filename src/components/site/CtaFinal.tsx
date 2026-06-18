@@ -1,14 +1,16 @@
 import { Button } from "@/components/ui/button";
 import heroPortrait from "@/assets/hero-portrait.jpg";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 export function CtaFinal() {
   return (
     <section id="contato" className="py-24 md:py-32 bg-beige/40">
       <div className="mx-auto max-w-6xl px-6">
-        <div
-          className="overflow-hidden rounded-[2.5rem] bg-card border border-border grid md:grid-cols-2"
-          style={{ boxShadow: "var(--shadow-elegant)" }}
-        >
+        <BlurFade>
+          <div
+            className="overflow-hidden rounded-[2.5rem] bg-card border border-border grid md:grid-cols-2"
+            style={{ boxShadow: "var(--shadow-elegant)" }}
+          >
           <div className="relative hidden md:block">
             <img
               src={heroPortrait}
@@ -38,7 +40,8 @@ export function CtaFinal() {
               </Button>
             </div>
           </div>
-        </div>
+          </div>
+        </BlurFade>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 const faqs = [
   { q: "Como sei se preciso de terapia?", a: "Não há um momento certo. A terapia é um espaço de cuidado para qualquer pessoa que queira se compreender melhor, atravessar uma fase difícil ou desenvolver recursos emocionais." },
@@ -19,9 +20,11 @@ export function Faq() {
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-12 gap-12 lg:gap-16 items-start">
         <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
           <span className="text-xs uppercase tracking-[0.2em] text-sage-deep">Perguntas frequentes</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-light leading-tight">
-            Dúvidas comuns antes de começar.
-          </h2>
+          <BlurFade>
+            <h2 className="mt-4 text-3xl md:text-5xl font-light leading-tight">
+              Dúvidas comuns antes de começar.
+            </h2>
+          </BlurFade>
           <p className="mt-6 text-sm text-muted-foreground leading-relaxed max-w-sm">
             Se restar alguma dúvida, fico à disposição para conversar antes do primeiro encontro.
           </p>
