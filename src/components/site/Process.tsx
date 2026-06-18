@@ -1,3 +1,5 @@
+import heroBg from "@/assets/hero-bg.jpg";
+
 const steps = [
   { n: "01", title: "Primeiro contato", desc: "Você envia uma mensagem e respondo em até 24 horas para combinarmos a sessão inicial." },
   { n: "02", title: "Sessão de acolhimento", desc: "Um encontro para entender sua demanda, expectativas e definir juntos o caminho terapêutico." },
@@ -7,24 +9,40 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="atendimento" className="py-24 md:py-32 bg-beige/40">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-16">
+    <section id="atendimento" className="py-28 md:py-36 bg-beige/40">
+      <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
           <span className="text-xs uppercase tracking-[0.2em] text-sage-deep">Como funciona</span>
           <h2 className="mt-4 text-3xl md:text-5xl font-light leading-tight">
             Um processo simples, do primeiro contato à continuidade.
           </h2>
+          <div
+            className="mt-10 aspect-[4/5] w-full rounded-[2rem] bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${heroBg})`,
+              boxShadow: "var(--shadow-soft)",
+            }}
+          />
         </div>
-        <ol className="grid md:grid-cols-2 gap-6">
-          {steps.map((s) => (
+        <ol className="md:col-span-7 relative md:pl-8">
+          <span aria-hidden className="hidden md:block absolute left-0 top-2 bottom-2 w-px bg-border" />
+          {steps.map((s, i) => (
             <li
               key={s.n}
-              className="p-8 rounded-3xl bg-card border border-border/70 flex gap-6"
+              className={`relative pb-10 last:pb-0 ${i === 0 ? "" : "pt-2"}`}
             >
-              <span className="text-sm font-medium text-sage-deep tracking-widest">{s.n}</span>
-              <div>
-                <h3 className="text-lg font-medium mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <span
+                aria-hidden
+                className="hidden md:block absolute -left-[33px] top-3 h-2 w-2 rounded-full bg-sage"
+              />
+              <div className="flex items-baseline gap-5">
+                <span className="text-sm font-medium text-sage-deep tracking-widest">{s.n}</span>
+                <div>
+                  <h3 className="text-xl font-medium mb-2">{s.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-md">
+                    {s.desc}
+                  </p>
+                </div>
               </div>
             </li>
           ))}

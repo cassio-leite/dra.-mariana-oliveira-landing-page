@@ -12,18 +12,24 @@ const areas = [
 export function Areas() {
   return (
     <section id="areas" className="py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mb-16">
+      <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-12 gap-12 lg:gap-16">
+        <aside className="md:col-span-4 md:sticky md:top-28 md:self-start">
           <span className="text-xs uppercase tracking-[0.2em] text-sage-deep">Áreas de atendimento</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-light leading-tight">
+          <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-light leading-tight">
             Cuidado especializado para cada momento da sua vida.
           </h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {areas.map(({ icon: Icon, title, desc }) => (
+          <div className="mt-8 h-px w-16 bg-sage/60" />
+          <p className="mt-6 text-sm text-muted-foreground leading-relaxed max-w-xs">
+            Cada processo é único. As áreas abaixo são pontos de partida para um trabalho construído a dois.
+          </p>
+        </aside>
+        <div className="md:col-span-8 grid sm:grid-cols-2 gap-5">
+          {areas.map(({ icon: Icon, title, desc }, i) => (
             <article
               key={title}
-              className="p-8 rounded-3xl bg-card border border-border/70 hover:border-sage/40 transition-colors"
+              className={`p-8 rounded-3xl bg-card border border-border/70 hover:border-sage/40 transition-colors ${
+                i % 2 === 1 ? "sm:translate-y-8" : ""
+              }`}
               style={{ boxShadow: "var(--shadow-soft)" }}
             >
               <div className="h-11 w-11 rounded-2xl bg-sage/10 grid place-items-center text-sage-deep mb-5">
