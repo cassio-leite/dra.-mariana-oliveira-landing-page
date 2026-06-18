@@ -1,4 +1,5 @@
 import heroBg from "@/assets/hero-bg.jpg";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 const steps = [
   { n: "01", title: "Primeiro contato", desc: "Você envia uma mensagem e respondo em até 24 horas para combinarmos a sessão inicial." },
@@ -13,9 +14,11 @@ export function Process() {
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-12 gap-12 lg:gap-20 items-start">
         <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
           <span className="text-xs uppercase tracking-[0.2em] text-sage-deep">Como funciona</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-light leading-tight">
-            Um processo simples, do primeiro contato à continuidade.
-          </h2>
+          <BlurFade>
+            <h2 className="mt-4 text-3xl md:text-5xl font-light leading-tight">
+              Um processo simples, do primeiro contato à continuidade.
+            </h2>
+          </BlurFade>
           <div
             className="mt-10 aspect-[4/5] w-full rounded-[2rem] bg-cover bg-center"
             style={{

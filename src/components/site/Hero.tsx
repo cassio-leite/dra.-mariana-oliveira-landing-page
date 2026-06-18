@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroPortrait from "@/assets/hero-portrait.jpg";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 export function Hero() {
   return (
@@ -44,22 +45,28 @@ export function Hero() {
             <span className="h-px w-8 bg-sage" />
             Psicologia Clínica · CRP 06/00000
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] text-foreground">
-            Um espaço seguro para
-            <span className="block italic font-normal text-sage-deep"> reencontrar você</span>
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-md leading-relaxed">
-            Psicoterapia individual para adultos que buscam clareza,
-            equilíbrio emocional e uma vida com mais propósito.
-          </p>
-          <div className="flex flex-wrap gap-3 pt-4">
-            <Button asChild size="lg" className="rounded-full px-7 h-12">
-              <a href="#contato">Agendar primeira sessão</a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-7 h-12 border-border bg-card">
-              <a href="#sobre">Conhecer meu trabalho</a>
-            </Button>
-          </div>
+          <BlurFade delay={0.1}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light leading-[1.05] text-foreground">
+              Um espaço seguro para
+              <span className="block italic font-normal text-sage-deep"> reencontrar você</span>
+            </h1>
+          </BlurFade>
+          <BlurFade delay={0.25}>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-md leading-relaxed">
+              Psicoterapia individual para adultos que buscam clareza,
+              equilíbrio emocional e uma vida com mais propósito.
+            </p>
+          </BlurFade>
+          <BlurFade delay={0.4}>
+            <div className="flex flex-wrap gap-3 pt-4">
+              <Button asChild size="lg" className="rounded-full px-7 h-12">
+                <a href="#contato">Agendar primeira sessão</a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="rounded-full px-7 h-12 border-border bg-card">
+                <a href="#sobre">Conhecer meu trabalho</a>
+              </Button>
+            </div>
+          </BlurFade>
           <div className="flex items-center gap-6 pt-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-sage" />
