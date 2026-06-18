@@ -1,29 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { About } from "@/components/site/About";
+import { Areas } from "@/components/site/Areas";
+import { Process } from "@/components/site/Process";
+import { Faq } from "@/components/site/Faq";
+import { CtaFinal } from "@/components/site/CtaFinal";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Dra. Mariana Oliveira — Psicóloga Clínica" },
+      { name: "description", content: "Psicoterapia individual para adultos. Atendimento online e presencial em São Paulo com a Dra. Mariana Oliveira." },
+      { property: "og:title", content: "Dra. Mariana Oliveira — Psicóloga Clínica" },
+      { property: "og:description", content: "Um espaço seguro para reencontrar você. Psicoterapia para adultos." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Areas />
+        <Process />
+        <Faq />
+        <CtaFinal />
+      </main>
+      <Footer />
     </div>
   );
 }
