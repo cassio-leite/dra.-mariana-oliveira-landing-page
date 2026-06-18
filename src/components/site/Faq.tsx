@@ -16,14 +16,17 @@ const faqs = [
 export function Faq() {
   return (
     <section id="faq" className="py-24 md:py-32">
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="text-center mb-14">
+      <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
           <span className="text-xs uppercase tracking-[0.2em] text-sage-deep">Perguntas frequentes</span>
           <h2 className="mt-4 text-3xl md:text-5xl font-light leading-tight">
             Dúvidas comuns antes de começar.
           </h2>
+          <p className="mt-6 text-sm text-muted-foreground leading-relaxed max-w-sm">
+            Se restar alguma dúvida, fico à disposição para conversar antes do primeiro encontro.
+          </p>
         </div>
-        <Accordion type="single" collapsible className="space-y-3">
+        <Accordion type="single" collapsible className="md:col-span-7 space-y-3">
           {faqs.map((f, i) => (
             <AccordionItem
               key={i}
