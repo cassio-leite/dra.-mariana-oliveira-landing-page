@@ -27,6 +27,7 @@ function Index() {
       <Navbar />
       <main>
         <Hero />
+        <Benefits />
         <About />
         <Areas />
         <Process />
