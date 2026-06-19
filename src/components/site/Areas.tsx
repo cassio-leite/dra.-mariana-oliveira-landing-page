@@ -61,7 +61,7 @@ export function Areas() {
               className={i % 2 === 1 ? "sm:translate-y-8" : ""}
             >
               <article
-                className="p-8 rounded-3xl bg-card border border-border/70 hover:border-sage/40 transition-colors h-full"
+                className="p-8 rounded-3xl bg-card border border-border/70 hover:border-sage/40 transition-all duration-500 h-full hover:-translate-y-2 hover:shadow-lg"
                 style={{ boxShadow: "var(--shadow-soft)" }}
               >
                 <div className="h-11 w-11 rounded-2xl bg-sage/10 grid place-items-center text-sage-deep mb-5">

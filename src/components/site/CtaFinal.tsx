@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Check, MessageCircle, ArrowRight } from "lucide-react";
+import { Check, MessageCircle } from "lucide-react";
 import marianaPortrait from "@/assets/mariana-portrait.jpg";
 
 export function CtaFinal() {
@@ -18,20 +18,23 @@ export function CtaFinal() {
       />
 
       <div className="mx-auto max-w-4xl px-6 relative">
-        <BlurFade delay={0.1}>
-          {/* Card Principal */}
-          <div className="rounded-[3rem] bg-white/40 backdrop-blur-md border border-white/60 shadow-elegant p-10 md:p-16 text-center">
-            {/* Label superior */}
+        <div className="rounded-[3rem] bg-white/40 backdrop-blur-md border border-white/60 shadow-elegant p-10 md:p-16 text-center">
+          {/* Label superior */}
+          <BlurFade delay={0.2}>
             <span className="text-xs uppercase tracking-[0.3em] text-sage-deep font-medium">
               PRONTO PARA COMEÇAR?
             </span>
+          </BlurFade>
 
-            {/* Headline principal */}
+          {/* Headline principal */}
+          <BlurFade delay={0.3}>
             <h2 className="mt-6 text-4xl md:text-6xl font-light leading-tight">
               Um espaço seguro para cuidar da sua saúde emocional.
             </h2>
+          </BlurFade>
 
-            {/* Bloco da profissional */}
+          {/* Bloco da profissional */}
+          <BlurFade delay={0.4}>
             <div className="mt-10 flex flex-col items-center gap-4">
               <Avatar className="h-20 w-20 border-2 border-white shadow-md">
                 <AvatarImage src={marianaPortrait} alt="Dra. Mariana Oliveira" />
@@ -45,8 +48,10 @@ export function CtaFinal() {
                 <p className="text-sm text-muted-foreground">+800 pacientes atendidos</p>
               </div>
             </div>
+          </BlurFade>
 
-            {/* Indicadores de confiança */}
+          {/* Indicadores de confiança */}
+          <BlurFade delay={0.5}>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-foreground max-w-xl mx-auto">
               {[
                 "Atendimento online e presencial",
@@ -60,8 +65,10 @@ export function CtaFinal() {
                 </div>
               ))}
             </div>
+          </BlurFade>
 
-            {/* Botão Principal */}
+          {/* Botão Principal */}
+          <BlurFade delay={0.6}>
             <div className="mt-12">
               <Button
                 asChild
@@ -79,8 +86,8 @@ export function CtaFinal() {
                 </a>
               </Button>
             </div>
-          </div>
-        </BlurFade>
+          </BlurFade>
+        </div>
       </div>
     </section>
   );
