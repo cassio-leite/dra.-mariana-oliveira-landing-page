@@ -15,7 +15,7 @@ export function Hero() {
             "linear-gradient(180deg, oklch(0.99 0.008 85) 0%, oklch(0.97 0.015 90) 55%, oklch(0.95 0.02 130) 100%)",
         }}
       />
-      
+
       {/* Radial ambient glow orbs */}
       <div
         aria-hidden
@@ -43,7 +43,10 @@ export function Hero() {
       />
 
       {/* Elegant organic line paths in background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div
+        className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
+        aria-hidden="true"
+      >
         <svg
           className="absolute top-1/4 right-0 w-[40%] h-[50%] text-sage-soft/15 stroke-current fill-none opacity-40"
           viewBox="0 0 400 600"
@@ -54,20 +57,14 @@ export function Hero() {
             strokeWidth="1.5"
             strokeDasharray="4 4"
           />
-          <path
-            d="M400,150 C320,190 280,110 180,200 C80,290 120,440 0,500"
-            strokeWidth="1"
-          />
+          <path d="M400,150 C320,190 280,110 180,200 C80,290 120,440 0,500" strokeWidth="1" />
         </svg>
         <svg
           className="absolute bottom-0 left-0 w-[30%] h-[40%] text-beige-deep/20 stroke-current fill-none opacity-30"
           viewBox="0 0 300 400"
           preserveAspectRatio="none"
         >
-          <path
-            d="M0,350 C80,300 120,380 200,280 C280,180 180,100 300,50"
-            strokeWidth="1"
-          />
+          <path d="M0,350 C80,300 120,380 200,280 C280,180 180,100 300,50" strokeWidth="1" />
         </svg>
       </div>
 
@@ -84,27 +81,30 @@ export function Hero() {
                 Psicologia Clínica · CRP 06/00000
               </div>
             </BlurFade>
-            
+
             <BlurFade delay={0.15}>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-foreground">
                 Um espaço seguro para
-                <span className="block italic font-normal text-sage-deep mt-1"> reencontrar você</span>
+                <span className="block italic font-normal text-sage-deep mt-1">
+                  {" "}
+                  reencontrar você
+                </span>
               </h1>
             </BlurFade>
-            
+
             <BlurFade delay={0.25}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed font-light">
-                Psicoterapia individual para adultos que buscam clareza,
-                equilíbrio emocional e uma vida com mais propósito.
+                Psicoterapia individual para adultos que buscam clareza, equilíbrio emocional e uma
+                vida com mais propósito.
               </p>
             </BlurFade>
           </div>
 
           <BlurFade delay={0.35}>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Button 
-                asChild 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 className="rounded-full px-8 h-12 text-sm md:text-base shadow-md shadow-sage/10 hover:shadow-lg hover:shadow-sage/20 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer"
               >
                 <a href="#contato" className="flex items-center gap-2">
@@ -112,10 +112,10 @@ export function Hero() {
                   Agendar primeira sessão
                 </a>
               </Button>
-              <Button 
-                asChild 
-                variant="outline" 
-                size="lg" 
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
                 className="group rounded-full px-8 h-12 text-sm md:text-base border-border bg-card/50 backdrop-blur-sm hover:bg-card hover:border-sage/40 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer"
               >
                 <a href="#sobre" className="flex items-center gap-2">
@@ -148,19 +148,18 @@ export function Hero() {
               aria-hidden
               className="absolute -inset-6 rounded-[2.5rem] -z-10 animate-pulse duration-[8000ms]"
               style={{
-                background:
-                  "linear-gradient(135deg, var(--beige-deep) 0%, var(--sage-soft) 100%)",
+                background: "linear-gradient(135deg, var(--beige-deep) 0%, var(--sage-soft) 100%)",
                 filter: "blur(50px)",
                 opacity: 0.6,
               }}
             />
-            
+
             {/* Artistic background frame */}
-            <div 
-              className="absolute inset-0 border border-sage-deep/15 rounded-[2.2rem] translate-x-4 translate-y-4 -z-10" 
+            <div
+              className="absolute inset-0 border border-sage-deep/15 rounded-[2.2rem] translate-x-4 translate-y-4 -z-10"
               aria-hidden="true"
             />
-            
+
             {/* Main Image Container */}
             <div
               className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-white/40 transition-all duration-500 hover:shadow-2xl"
@@ -174,9 +173,12 @@ export function Hero() {
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            
+
             {/* Card 1: Próximos horários */}
-            <BlurFade delay={0.4} className="absolute -bottom-8 -left-6 hidden sm:block max-w-[240px]">
+            <BlurFade
+              delay={0.4}
+              className="absolute -bottom-8 -left-6 hidden sm:block max-w-[240px]"
+            >
               <div
                 className="bg-card/95 backdrop-blur-md rounded-2xl p-5 border border-sage/10 shadow-lg"
                 style={{ boxShadow: "var(--shadow-soft)" }}
@@ -194,7 +196,7 @@ export function Hero() {
                 </p>
               </div>
             </BlurFade>
-            
+
             {/* Card 2: Anos de experiência */}
             <BlurFade delay={0.5} className="absolute -top-6 -right-4 hidden sm:block">
               <div
@@ -204,7 +206,9 @@ export function Hero() {
                 <span className="h-8 w-8 rounded-full bg-sage-soft flex items-center justify-center text-sage-deep text-xs font-semibold">
                   12+
                 </span>
-                <span className="text-xs text-muted-foreground font-medium">anos de experiência</span>
+                <span className="text-xs text-muted-foreground font-medium">
+                  anos de experiência
+                </span>
               </div>
             </BlurFade>
           </BlurFade>

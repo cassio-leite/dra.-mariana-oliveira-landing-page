@@ -13,9 +13,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Dra. Mariana Oliveira — Psicóloga Clínica" },
-      { name: "description", content: "Psicoterapia individual para adultos. Atendimento online e presencial em São Paulo com a Dra. Mariana Oliveira." },
+      {
+        name: "description",
+        content:
+          "Psicoterapia individual para adultos. Atendimento online e presencial em São Paulo com a Dra. Mariana Oliveira.",
+      },
       { property: "og:title", content: "Dra. Mariana Oliveira — Psicóloga Clínica" },
-      { property: "og:description", content: "Um espaço seguro para reencontrar você. Psicoterapia para adultos." },
+      {
+        property: "og:description",
+        content: "Um espaço seguro para reencontrar você. Psicoterapia para adultos.",
+      },
     ],
   }),
   component: Index,

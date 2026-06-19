@@ -16,9 +16,7 @@ export function Navbar() {
           <span className="h-8 w-8 rounded-full bg-sage/15 grid place-items-center">
             <span className="h-2.5 w-2.5 rounded-full bg-sage" />
           </span>
-          <span className="font-medium tracking-tight">
-            Dra. Mariana Oliveira
-          </span>
+          <span className="font-medium tracking-tight">Dra. Mariana Oliveira</span>
         </Link>
         <ul className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           {links.map((l) => (

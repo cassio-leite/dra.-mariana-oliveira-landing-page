@@ -78,10 +78,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Dra. Mariana Oliveira — Psicóloga Clínica" },
-      { name: "description", content: "Psicoterapia acolhedora para adultos. Atendimento online e presencial com a Dra. Mariana Oliveira." },
+      {
+        name: "description",
+        content:
+          "Psicoterapia acolhedora para adultos. Atendimento online e presencial com a Dra. Mariana Oliveira.",
+      },
       { name: "author", content: "Dra. Mariana Oliveira" },
       { property: "og:title", content: "Dra. Mariana Oliveira — Psicóloga Clínica" },
-      { property: "og:description", content: "Psicoterapia acolhedora para adultos. Atendimento online e presencial." },
+      {
+        property: "og:description",
+        content: "Psicoterapia acolhedora para adultos. Atendimento online e presencial.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -93,7 +100,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,

@@ -52,24 +52,20 @@ export function Benefits() {
                 className="group relative rounded-[2rem] bg-card border border-border/50 p-8 md:p-10 flex flex-col h-full"
                 style={{ boxShadow: "var(--shadow-soft)" }}
               >
-              {/* Icon */}
-              <div className="mb-7 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-sage-soft/40 text-sage-deep">
-                <item.icon size={22} strokeWidth={1.5} />
-              </div>
+                {/* Icon */}
+                <div className="mb-7 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-sage-soft/40 text-sage-deep">
+                  <item.icon size={22} strokeWidth={1.5} />
+                </div>
 
-              {/* Content */}
-              <h3 className="text-xl font-medium mb-3 leading-snug">
-                {item.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {item.description}
-              </p>
+                {/* Content */}
+                <h3 className="text-xl font-medium mb-3 leading-snug">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
 
-              {/* Subtle hover accent */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-1 rounded-b-[2rem] bg-gradient-to-r from-sage-soft to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              />
+                {/* Subtle hover accent */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-1 rounded-b-[2rem] bg-gradient-to-r from-sage-soft to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
               </div>
             </BlurFade>
           ))}
