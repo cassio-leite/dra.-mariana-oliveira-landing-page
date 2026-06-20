@@ -34,7 +34,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="atendimento" className="py-32 md:py-36 bg-beige/40">
+    <section id="processo" className="py-32 md:py-36 bg-beige/40">
       <div className="mx-auto max-w-6xl px-6">
         {/* Cabeçalho */}
         <div className="text-center max-w-3xl mx-auto mb-20 md:mb-28">
