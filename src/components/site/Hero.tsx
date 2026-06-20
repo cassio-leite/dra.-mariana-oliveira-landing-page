@@ -68,7 +68,7 @@ export function Hero() {
         </svg>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pt-28 pb-32 md:pt-36 md:pb-44 grid md:grid-cols-12 gap-16 lg:gap-20 items-center">
+      <div className="mx-auto max-w-7xl px-6 pt-40 pb-32 md:pt-48 md:pb-44 grid md:grid-cols-12 gap-16 lg:gap-20 items-center">
         {/* Left Column: Text & CTAs */}
         <div className="md:col-span-6 flex flex-col justify-center space-y-10 lg:pr-6">
           <div className="space-y-6">
