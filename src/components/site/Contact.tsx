@@ -195,6 +195,7 @@ export function Contact() {
                   type="submit"
                   disabled={isSubmitting || !form.formState.isValid}
                   className="rounded-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full lg:w-auto h-12 px-8 gap-2 disabled:opacity-50 disabled:pointer-events-none"
+                  aria-label="Enviar formulário de contato"
                 >
                   {isSubmitting ? (
                     <>

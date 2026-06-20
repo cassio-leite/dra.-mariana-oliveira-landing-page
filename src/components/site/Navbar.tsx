@@ -57,7 +57,7 @@ export function Navbar() {
             : "bg-transparent border-transparent"
         }`}
       >
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group" aria-label="Página inicial">
           <span className="h-8 w-8 rounded-full bg-sage/15 grid place-items-center">
             <span className="h-2.5 w-2.5 rounded-full bg-sage" />
           </span>
@@ -91,7 +91,7 @@ export function Navbar() {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" aria-label="Abrir menu de navegação">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>

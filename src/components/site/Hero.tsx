@@ -106,6 +106,7 @@ export function Hero() {
                 asChild
                 size="lg"
                 className="rounded-full px-8 h-12 text-sm md:text-base shadow-md shadow-sage/10 hover:shadow-lg hover:shadow-sage/20 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer"
+                aria-label="Agendar primeira sessão com Dra. Mariana Oliveira"
               >
                 <a href="#contato" className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
@@ -117,6 +118,7 @@ export function Hero() {
                 variant="outline"
                 size="lg"
                 className="group rounded-full px-8 h-12 text-sm md:text-base border-border bg-card/50 backdrop-blur-sm hover:bg-card hover:border-sage/40 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 cursor-pointer"
+                aria-label="Conhecer trabalho da Dra. Mariana Oliveira"
               >
                 <a href="#sobre" className="flex items-center gap-2">
                   Conhecer meu trabalho
@@ -170,6 +172,7 @@ export function Hero() {
                 alt="Retrato da Dra. Mariana Oliveira, psicóloga clínica"
                 width={896}
                 height={1152}
+                loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>

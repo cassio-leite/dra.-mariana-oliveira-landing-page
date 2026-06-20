@@ -50,6 +50,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 transition-colors duration-300 hover:text-sage-deep"
+                aria-label="Conversar pelo WhatsApp"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp
@@ -59,6 +60,7 @@ export function Footer() {
               <a
                 href="mailto:contato@dramarianaoliveira.com.br"
                 className="flex items-center gap-2 transition-colors duration-300 hover:text-sage-deep"
+                aria-label="Enviar um e-mail"
               >
                 <Mail className="h-4 w-4" />
                 Email
@@ -68,6 +70,7 @@ export function Footer() {
               <a
                 href="#"
                 className="flex items-center gap-2 transition-colors duration-300 hover:text-sage-deep"
+                aria-label="Seguir no Instagram"
               >
                 <Instagram className="h-4 w-4" />
                 Instagram
