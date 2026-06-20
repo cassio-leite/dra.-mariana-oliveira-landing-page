@@ -7,6 +7,7 @@ import { Areas } from "@/components/site/Areas";
 import { Process } from "@/components/site/Process";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Faq } from "@/components/site/Faq";
+import { Contact } from "@/components/site/Contact";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Footer } from "@/components/site/Footer";
 
@@ -121,6 +122,7 @@ function Index() {
         <Process />
         <Testimonials />
         <Faq />
+        <Contact />
         <CtaFinal />
       </main>
       <Footer />
