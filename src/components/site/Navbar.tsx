@@ -100,10 +100,13 @@ export function Navbar() {
                 {links.map((l) => (
                   <button
                     key={l.href}
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       const element = document.querySelector(l.href);
                       if (element) {
-                        element.scrollIntoView({ behavior: "smooth" });
+                        setTimeout(() => {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }, 100);
                       }
                     }}
                     className="text-xl font-medium text-foreground text-left w-full pointer-events-auto"
@@ -113,10 +116,13 @@ export function Navbar() {
                 ))}
                 <div className="h-px bg-border my-2" />
                 <button
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
                     const element = document.querySelector("#contato");
                     if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
+                      setTimeout(() => {
+                        element.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
                     }
                   }}
                   className="w-full text-left pointer-events-auto"
