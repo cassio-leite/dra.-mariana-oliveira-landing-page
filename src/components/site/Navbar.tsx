@@ -98,22 +98,38 @@ export function Navbar() {
             <SheetContent className="w-full sm:max-w-sm pt-20">
               <nav className="flex flex-col gap-6">
                 {links.map((l) => (
-                  <SheetClose asChild key={l.href}>
-                    <a href={l.href} className="text-xl font-medium text-foreground pointer-events-auto">
-                      {l.label}
-                    </a>
-                  </SheetClose>
+                  <button
+                    key={l.href}
+                    onClick={() => {
+                      const element = document.querySelector(l.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                    className="text-xl font-medium text-foreground text-left w-full pointer-events-auto"
+                  >
+                    <SheetClose>{l.label}</SheetClose>
+                  </button>
                 ))}
                 <div className="h-px bg-border my-2" />
-                <SheetClose asChild>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="rounded-full w-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] pointer-events-auto"
-                  >
-                    <a href="#contato">Agendar consulta</a>
-                  </Button>
-                </SheetClose>
+                <button
+                  onClick={() => {
+                    const element = document.querySelector("#contato");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="w-full text-left pointer-events-auto"
+                >
+                  <SheetClose asChild>
+                    <Button
+                      size="lg"
+                      className="rounded-full w-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      Agendar consulta
+                    </Button>
+                  </SheetClose>
+                </button>
               </nav>
             </SheetContent>
           </Sheet>
