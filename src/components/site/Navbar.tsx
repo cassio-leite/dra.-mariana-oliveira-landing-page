@@ -99,7 +99,7 @@ export function Navbar() {
               <nav className="flex flex-col gap-6">
                 {links.map((l) => (
                   <SheetClose asChild key={l.href}>
-                    <a href={l.href} className="text-xl font-medium text-foreground">
+                    <a href={l.href} className="text-xl font-medium text-foreground pointer-events-auto">
                       {l.label}
                     </a>
                   </SheetClose>
@@ -109,7 +109,7 @@ export function Navbar() {
                   <Button
                     asChild
                     size="lg"
-                    className="rounded-full w-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                    className="rounded-full w-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] pointer-events-auto"
                   >
                     <a href="#contato">Agendar consulta</a>
                   </Button>

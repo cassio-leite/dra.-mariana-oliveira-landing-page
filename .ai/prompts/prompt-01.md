@@ -1,59 +1,37 @@
-Faça uma revisão completa da experiência mobile do projeto.
+Faça uma correção de bug na navegação mobile do projeto.
 
-Existem três problemas:
+Problema atual
 
-## 1. Botão CTA da seção final
+Quando o menu de navegação mobile (hamburger menu) é aberto, os links não funcionam corretamente:
 
-O botão "Agendar conversa inicial" ainda apresenta um pequeno desalinhamento horizontal no mobile.
+O usuário precisa segurar o toque para que a ação de clique funcione
+Um toque normal não executa o scroll/navegação
+O comportamento está diferente do padrão esperado de navegação mobile (tap → navegar imediatamente)
+A página não responde corretamente ao evento de clique em dispositivos móveis
+Comportamento esperado
+Um único toque em qualquer link do menu deve:
+Navegar imediatamente para a seção correspondente (#id)
+Fechar o menu mobile automaticamente
+Ativar scroll suave normalmente
+O comportamento deve ser idêntico ao padrão de navegação mobile nativa
+Possíveis causas a verificar
+Uso incorreto de onTouchStart, onTouchEnd ou eventos duplicados de clique
+Algum overlay ou elemento com z-index interceptando eventos de toque
+pointer-events: none ou pointer-events: auto mal configurado
+Problema com event.preventDefault() bloqueando o comportamento padrão
+Estado do menu não sendo fechado corretamente antes da navegação
+Conflito entre framer-motion, div overlay ou fixed container
+Regras importantes
+Não alterar o design visual atual
+Não remover animações existentes sem necessidade
+Não criar novos arquivos
+Corrigir apenas o comportamento de interação/touch
+Garantir compatibilidade mobile (iOS Safari e Android Chrome)
+Resultado esperado
 
-Objetivos:
+Menu mobile funcionando normalmente:
 
-* centralizar perfeitamente;
-* manter o design atual;
-* evitar margens fixas;
-* usar flexbox corretamente;
-* limitar a largura do botão com max-width adequado;
-* garantir alinhamento correto em 320px, 375px e 425px.
-
----
-
-## 2. Links da Navbar no mobile
-
-Ao abrir o site no celular, os links do menu não estão funcionando corretamente.
-
-Verificar:
-
-* se os IDs das seções existem;
-* se os href correspondem aos IDs;
-* se algum overlay ou z-index está bloqueando os cliques;
-* se o menu mobile fecha após selecionar um item;
-* se o scroll suave está funcionando;
-* se algum elemento com position fixed está interceptando eventos.
-
-Corrigir sem alterar o visual atual.
-
----
-
-## 3. Performance
-
-A página está lenta para carregar em dispositivos móveis.
-
-Faça uma análise e implemente melhorias:
-
-* lazy loading de imagens;
-* reduzir animações excessivas;
-* otimizar componentes do Framer Motion;
-* evitar re-renderizações desnecessárias;
-* diminuir custo do BlurFade;
-* usar carregamento sob demanda quando possível;
-* melhorar a pontuação do Lighthouse Mobile.
-
-Não criar novos arquivos.
-
-Manter o design premium atual.
-
-Prioridade:
-
-1. Navegação mobile.
-2. Performance.
-3. Centralização do botão.
+Tap único funciona
+Scroll suave funciona
+Menu fecha automaticamente ao clicar em um link
+Nenhum comportamento de “segurar para funcionar”
