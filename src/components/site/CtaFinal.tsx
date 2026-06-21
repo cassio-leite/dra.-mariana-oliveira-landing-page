@@ -69,18 +69,18 @@ export function CtaFinal() {
 
           {/* Botão Principal */}
           <BlurFade delay={0.6}>
-            <div className="mt-12">
+            <div className="mt-12 flex justify-center w-full">
               <Button
                 asChild
                 size="lg"
-                className="rounded-full px-10 py-8 h-auto bg-sage-deep text-white shadow-soft hover:scale-[1.02] transition-all duration-300 text-lg"
+                className="rounded-full px-10 py-8 h-auto bg-sage-deep text-white shadow-soft hover:scale-[1.02] transition-all duration-300 text-lg max-w-full"
                 aria-label="Agendar conversa inicial pelo WhatsApp"
               >
                 <a
                   href="https://wa.me/5500000000000"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-3 justify-center"
                 >
                   <MessageCircle size={24} />
                   Agendar conversa inicial

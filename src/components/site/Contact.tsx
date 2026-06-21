@@ -32,7 +32,7 @@ export function Contact() {
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
-    mode: "onBlur",
+    mode: "onChange",
     defaultValues: {
       name: "",
       email: "",

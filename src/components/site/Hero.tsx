@@ -70,7 +70,7 @@ export function Hero() {
 
       <div className="mx-auto max-w-7xl px-6 pt-40 pb-32 md:pt-48 md:pb-44 grid md:grid-cols-12 gap-16 lg:gap-20 items-center">
         {/* Left Column: Text & CTAs */}
-        <div className="md:col-span-6 flex flex-col justify-center space-y-10 lg:pr-6">
+        <div className="md:col-span-6 flex flex-col items-center md:items-start justify-center space-y-10 lg:pr-6 text-center md:text-left">
           <div className="space-y-6">
             <BlurFade delay={0.05}>
               <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-sage-deep bg-sage-soft/20 border border-sage/15 backdrop-blur-sm shadow-sm">
@@ -101,7 +101,7 @@ export function Hero() {
           </div>
 
           <BlurFade delay={0.35}>
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-4 pt-2">
               <Button
                 asChild
                 size="lg"

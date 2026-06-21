@@ -11,7 +11,7 @@ import { a as DialogOverlay, c as DialogTrigger, i as DialogDescription, n as Di
 import { n as motion, t as useInView } from "../_libs/framer-motion.mjs";
 import { n as stringType, t as objectType } from "../_libs/zod.mjs";
 import { t as Root } from "../_libs/radix-ui__react-label.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-DBItOOCQ.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-DbyIcvIf.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function cn(...inputs) {
@@ -329,7 +329,7 @@ function Hero() {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "mx-auto max-w-7xl px-6 pt-40 pb-32 md:pt-48 md:pb-44 grid md:grid-cols-12 gap-16 lg:gap-20 items-center",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "md:col-span-6 flex flex-col justify-center space-y-10 lg:pr-6",
+					className: "md:col-span-6 flex flex-col items-center md:items-start justify-center space-y-10 lg:pr-6 text-center md:text-left",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "space-y-6",
@@ -366,7 +366,7 @@ function Hero() {
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BlurFade, {
 							delay: .35,
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex flex-col sm:flex-row gap-4 pt-2",
+								className: "flex flex-col sm:flex-row justify-center sm:justify-start gap-4 pt-2",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 									asChild: true,
 									size: "lg",
@@ -1621,7 +1621,7 @@ function CtaFinal() {
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BlurFade, {
 							delay: .6,
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "mt-12",
+								className: "mt-12 flex justify-center ml-4",
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 									asChild: true,
 									size: "lg",
