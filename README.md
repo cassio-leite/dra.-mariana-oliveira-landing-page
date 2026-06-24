@@ -166,6 +166,6 @@ Planejamento de melhorias para elevar ainda mais o nível técnico e comercial d
 
 Desenvolvido por **Cássio Leite**.
 
-*   **GitHub:** [https://github.com/cassioleite](https://github.com/cassioleite)
-*   **LinkedIn:** [https://linkedin.com/in/cassio-leite](https://linkedin.com/in/cassio-leite)
-*   **Portfólio:** [https://cassioleite.dev](https://cassioleite.dev)
+*   **GitHub:** [https://github.com/cassio-leite](https://github.com/cassio-leite)
+*   **LinkedIn:** [https://www.linkedin.com/in/cassio-leite/](https://www.linkedin.com/in/cassio-leite/)
+*   **Portfólio:** [https://cassio-leite.github.io/portfolio/](https://cassio-leite.github.io/portfolio/)
