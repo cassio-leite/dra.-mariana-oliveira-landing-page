@@ -2,6 +2,12 @@
 
 Uma landing page premium, totalmente responsiva e de alta conversão, desenvolvida para a psicóloga clínica **Dra. Mariana Oliveira**. Este é um projeto real de portfólio projetado para demonstrar excelência em desenvolvimento front-end moderno, design voltado à experiência do usuário, acessibilidade e SEO avançado.
 
+## Processo de Desenvolvimento
+
+Parte do projeto foi construída utilizando desenvolvimento assistido por IA.
+
+Os prompts utilizados durante o processo foram mantidos na pasta `/prompts` para documentar o fluxo de trabalho, as decisões de implementação e a evolução do projeto.
+
 O design do site foi planejado em torno de quatro pilares fundamentais: **acolhimento, confiança, conversão e experiência de alto padrão**.
 
 ---
