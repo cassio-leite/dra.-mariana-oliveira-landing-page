@@ -1,79 +1,144 @@
-Analise e corrija os problemas de usabilidade, acessibilidade e performance do menu mobile da Navbar.
+Crie um README.md profissional para um projeto real de portfólio.
 
-Contexto:
+Contexto do projeto:
 
-* Projeto React + TanStack Start.
-* Componentes do Radix UI (Sheet, SheetContent, SheetTrigger, SheetClose).
-* O menu funciona de forma inconsistente em dispositivos móveis.
-* Em alguns momentos os links não respondem ao toque.
-* Após algum tempo ou após recarregar a página, o menu passa a funcionar normalmente.
-* O carregamento inicial também parece lento em dispositivos móveis.
+* Nome do projeto: Dra. Mariana Oliveira — Landing Page
+* Tipo: Landing Page para psicóloga clínica
+* Objetivo: apresentar serviços, gerar confiança e converter visitantes em contatos via WhatsApp.
+* Projeto fictício criado para demonstrar habilidades de desenvolvimento front-end e criação de sites profissionais para clientes.
+* Design focado em:
 
-Objetivos:
+  * acolhimento;
+  * confiança;
+  * conversão;
+  * experiência premium.
 
-1. Corrigir a estrutura inválida do menu mobile.
+Tecnologias utilizadas:
 
-* Verifique se existem elementos interativos aninhados.
-* Atualmente existe um <button> envolvendo um <SheetClose>, e o SheetClose do Radix também renderiza um botão.
-* Isso pode gerar HTML inválido e comportamento inconsistente em navegadores mobile.
-* Refatore utilizando corretamente o padrão: <SheetClose asChild> <button>...</button> </SheetClose>
-* Não deixe botões dentro de botões.
+* React 19
+* TypeScript
+* TanStack Start
+* TanStack Router
+* Tailwind CSS v4
+* Shadcn UI
+* Radix UI
+* Framer Motion
+* React Hook Form
+* Zod
+* Sonner
 
-2. Corrigir a navegação das âncoras.
+Funcionalidades implementadas:
 
-* Os links do menu devem fechar o Sheet e navegar para a seção correspondente.
-* Remover dependência de setTimeout arbitrário.
-* Substituir a lógica atual por uma abordagem confiável.
-* Garantir que o menu seja fechado antes de iniciar o scroll.
-* Utilizar uma solução baseada em estado do Sheet ou callback de fechamento.
-* O scroll deve ser suave:
-  scrollIntoView({
-  behavior: "smooth",
-  block: "start"
-  });
+* Hero Section
+* Benefícios
+* Sobre a profissional
+* Áreas de atuação
+* Processo terapêutico
+* Depoimentos
+* FAQ
+* CTA final
+* Formulário com validação
+* Navbar responsiva
+* Menu mobile premium
+* Footer premium
+* SEO otimizado
+* Open Graph
+* Twitter Cards
+* Canonical URL
+* Favicon personalizado
+* Web Manifest
+* Scroll suave
+* Destaque de seção ativa na navegação
+* Layout responsivo
+* Animações suaves
+* Acessibilidade básica
 
-3. Investigar possíveis overlays bloqueando cliques.
+Estrutura desejada:
 
-* Verificar se o SheetOverlay continua ativo após o fechamento.
-* Verificar z-index dos elementos.
-* Garantir que nenhum overlay invisível esteja interceptando eventos de toque.
-* Conferir pointer-events dos elementos do menu.
+# Título do Projeto
 
-4. Melhorar a acessibilidade.
+Breve descrição do projeto.
 
-* Garantir navegação correta por teclado.
-* Garantir foco correto ao abrir e fechar o menu.
-* Manter aria-labels adequados.
-* Garantir que o botão hambúrguer seja acessível.
+## Preview
 
-5. Melhorar a performance inicial.
+Adicionar espaço para screenshot.
 
-* Identificar possíveis causas de lentidão durante a hidratação.
-* Verificar se há renderizações desnecessárias na Navbar.
-* Utilizar useMemo/useCallback apenas se realmente necessário.
-* Evitar recriações desnecessárias de funções durante renderizações.
-* Garantir que o menu esteja utilizável logo após a hidratação.
+## Objetivo
 
-6. Melhorar a lógica do IntersectionObserver.
+Explicar o propósito da landing page.
 
-* Garantir que todas as seções sejam observadas corretamente.
-* Evitar falhas caso alguma seção ainda não esteja disponível no momento da montagem.
-* Tornar a lógica mais robusta.
+## Tecnologias
 
-7. Resultado esperado.
+Lista organizada das tecnologias utilizadas.
 
-* Menu mobile abre instantaneamente.
-* Todos os links respondem ao primeiro toque.
-* O menu fecha corretamente.
-* O scroll para a seção funciona sempre.
-* Nenhum clique é bloqueado.
-* Sem elementos interativos aninhados.
-* Sem warnings de acessibilidade.
-* Melhor experiência em iPhone e Android.
+## Funcionalidades
+
+Lista completa das funcionalidades implementadas.
+
+## SEO e Performance
+
+Explicar as otimizações realizadas:
+
+* Meta tags
+* Open Graph
+* Twitter Cards
+* Canonical URL
+* Sitemap-ready
+* Responsividade
+* Performance
+
+## Estrutura do Projeto
+
+Mostrar árvore resumida de pastas.
+
+## Como executar localmente
+
+Instruções:
+
+```bash
+npm install
+npm run dev
+```
+
+## Build de Produção
+
+```bash
+npm run build
+```
+
+## Aprendizados
+
+Explicar brevemente os conhecimentos aplicados durante o desenvolvimento.
+
+## Possíveis Melhorias Futuras
+
+Exemplos:
+
+* Integração com WhatsApp Business API
+* CMS para gerenciamento de conteúdo
+* Blog para SEO
+* Integração com Google Analytics
+* Integração com Meta Pixel
+
+## Autor
+
+Cássio Leite
+
+GitHub:
+[adicionar link]
+
+LinkedIn:
+[adicionar link]
+
+Portfólio:
+[adicionar link]
 
 Importante:
 
-* Faça as correções diretamente no componente Navbar.
-* Explique cada alteração realizada.
-* Mostre o código final completo já corrigido.
-* Não apenas sugira mudanças; implemente as correções seguindo as boas práticas do Radix UI e React.
+* Escrever em português.
+* Utilizar Markdown profissional.
+* Utilizar emojis com moderação.
+* Fazer parecer um projeto comercial real.
+* Não mencionar que foi criado com IA.
+* Não mencionar Gemini, ChatGPT ou Lovable.
+* Produzir um README de nível profissional para portfólio de desenvolvedor front-end.
