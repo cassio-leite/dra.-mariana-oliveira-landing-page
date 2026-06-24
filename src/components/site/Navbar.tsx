@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
 const links = [
   { href: "#sobre", label: "Sobre" },
@@ -15,6 +15,8 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const pendingScrollTargetRef = useRef<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,14 +35,22 @@ export function Navbar() {
       { threshold: 0.1, rootMargin: "-20% 0px -70% 0px" },
     );
 
-    links.forEach((link) => {
-      const element = document.querySelector(link.href);
-      if (element) observer.observe(element);
-    });
+    const observeElements = () => {
+      links.forEach((link) => {
+        const element = document.querySelector(link.href);
+        if (element) observer.observe(element);
+      });
+    };
+
+    observeElements();
+
+    // Safe retry once after a short delay to ensure late-hydrated or dynamically-rendered sections are observed
+    const retryTimeout = setTimeout(observeElements, 1000);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
+      clearTimeout(retryTimeout);
     };
   }, []);
 
@@ -89,53 +99,61 @@ export function Navbar() {
           </Button>
         </div>
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Abrir menu de navegação">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent className="w-full sm:max-w-sm pt-20">
+            <SheetContent
+              className="w-full sm:max-w-sm pt-20"
+              onCloseAutoFocus={(e) => {
+                if (pendingScrollTargetRef.current) {
+                  e.preventDefault();
+                  const target = pendingScrollTargetRef.current;
+                  pendingScrollTargetRef.current = null;
+
+                  const element = document.querySelector(target);
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                    if (element instanceof HTMLElement) {
+                      element.focus({ preventScroll: true });
+                    }
+                  }
+                }
+              }}
+            >
+              <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
               <nav className="flex flex-col gap-6">
                 {links.map((l) => (
                   <button
                     key={l.href}
                     onClick={(e) => {
                       e.preventDefault();
-                      const element = document.querySelector(l.href);
-                      if (element) {
-                        setTimeout(() => {
-                          element.scrollIntoView({ behavior: "smooth" });
-                        }, 100);
-                      }
+                      pendingScrollTargetRef.current = l.href;
+                      setIsOpen(false);
                     }}
-                    className="text-xl font-medium text-foreground text-left w-full pointer-events-auto"
+                    className={`text-xl font-medium text-left w-full py-2 transition-colors duration-300 pointer-events-auto ${
+                      activeSection === l.href
+                        ? "text-sage-deep font-semibold"
+                        : "text-foreground hover:text-sage-deep"
+                    }`}
                   >
-                    <SheetClose>{l.label}</SheetClose>
+                    {l.label}
                   </button>
                 ))}
                 <div className="h-px bg-border my-2" />
-                <button
+                <Button
+                  size="lg"
+                  className="rounded-full w-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                   onClick={(e) => {
                     e.preventDefault();
-                    const element = document.querySelector("#contato");
-                    if (element) {
-                      setTimeout(() => {
-                        element.scrollIntoView({ behavior: "smooth" });
-                      }, 100);
-                    }
+                    pendingScrollTargetRef.current = "#contato";
+                    setIsOpen(false);
                   }}
-                  className="w-full text-left pointer-events-auto"
                 >
-                  <SheetClose asChild>
-                    <Button
-                      size="lg"
-                      className="rounded-full w-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                    >
-                      Agendar consulta
-                    </Button>
-                  </SheetClose>
-                </button>
+                  Agendar consulta
+                </Button>
               </nav>
             </SheetContent>
           </Sheet>
