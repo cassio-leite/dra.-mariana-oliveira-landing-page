@@ -64,11 +64,13 @@ export function Navbar() {
           </span>
           <span className="font-medium tracking-tight">Dra. Mariana Oliveira</span>
         </Link>
+        {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-8 text-sm">
           {navigationLinks.map((l) => (
             <li key={l.href}>
-              <a
-                href={l.href}
+              <Link
+                to="/"
+                hash={l.href.replace("#", "")}
                 className={`transition-colors duration-300 ${
                   activeSection === l.href
                     ? "text-sage-deep font-medium"
@@ -76,7 +78,7 @@ export function Navbar() {
                 }`}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -86,7 +88,7 @@ export function Navbar() {
             size="sm"
             className="rounded-full px-5 shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
           >
-            <a href="#contato">Agendar consulta</a>
+            <Link to="/" hash="contato">Agendar consulta</Link>
           </Button>
         </div>
         
@@ -109,9 +111,10 @@ export function Navbar() {
       >
         <nav className="px-6 py-6 flex flex-col gap-4">
           {navigationLinks.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to="/"
+              hash={l.href.replace("#", "")}
               onClick={() => setIsOpen(false)}
               className={`text-xl py-2 transition-colors duration-300 ${
                 activeSection === l.href
@@ -120,10 +123,10 @@ export function Navbar() {
               }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <Button asChild className="mt-4 rounded-full w-full">
-            <a href="#contato" onClick={() => setIsOpen(false)}>Agendar consulta</a>
+            <Link to="/" hash="contato" onClick={() => setIsOpen(false)}>Agendar consulta</Link>
           </Button>
         </nav>
       </div>
