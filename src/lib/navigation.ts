@@ -1,8 +1,8 @@
 export const navigationLinks = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#areas", label: "Áreas" },
-  { href: "#processo", label: "Processo" },
-  { href: "#depoimentos", label: "Depoimentos" },
-  { href: "#contato", label: "Contato" },
-  { href: "#faq", label: "Dúvidas" },
+  { to: "/", hash: "sobre", label: "Sobre" },
+  { to: "/", hash: "areas", label: "Áreas" },
+  { to: "/", hash: "processo", label: "Processo" },
+  { to: "/", hash: "depoimentos", label: "Depoimentos" },
+  { to: "/", hash: "contato", label: "Contato" },
+  { to: "/", hash: "faq", label: "Dúvidas" },
 ];

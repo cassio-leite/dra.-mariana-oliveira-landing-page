@@ -1,4 +1,5 @@
 import { MessageCircle, Mail, Instagram, Laptop, MapPin, Clock3 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { navigationLinks } from "@/lib/navigation";
 
 export function Footer() {
@@ -26,10 +27,14 @@ export function Footer() {
           <p className="font-medium text-foreground">Menu</p>
           <ul className="space-y-3 text-sm text-muted-foreground">
             {navigationLinks.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className="transition-colors duration-300 hover:text-sage-deep">
+              <li key={link.hash}>
+                <Link
+                  to={link.to}
+                  hash={link.hash}
+                  className="transition-colors duration-300 hover:text-sage-deep"
+                >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
