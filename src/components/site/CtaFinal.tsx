@@ -6,7 +6,7 @@ import marianaPortrait from "@/assets/mariana-portrait.jpg";
 
 export function CtaFinal() {
   return (
-    <section id="contato" className="relative py-24 md:py-40 overflow-hidden">
+    <section className="relative py-24 md:py-40 overflow-hidden">
       {/* Background Decorativo */}
       <div
         aria-hidden

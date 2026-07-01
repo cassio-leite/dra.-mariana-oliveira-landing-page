@@ -3,14 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-
-const links = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#areas", label: "Áreas" },
-  { href: "#processo", label: "Processo" },
-  { href: "#depoimentos", label: "Depoimentos" },
-  { href: "#faq", label: "Dúvidas" },
-];
+import { navigationLinks } from "@/lib/navigation";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -46,7 +39,7 @@ export function Navbar() {
     );
 
     const observeElements = () => {
-      links.forEach((link) => {
+      navigationLinks.forEach((link) => {
         const element = document.querySelector(link.href);
         if (element) observer.observe(element);
       });
@@ -84,7 +77,7 @@ export function Navbar() {
           <span className="font-medium tracking-tight">Dra. Mariana Oliveira</span>
         </Link>
         <ul className="hidden md:flex items-center gap-8 text-sm">
-          {links.map((l) => (
+          {navigationLinks.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
@@ -120,7 +113,7 @@ export function Navbar() {
             >
               <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
               <nav className="flex flex-col gap-6">
-                {links.map((l) => (
+                {navigationLinks.map((l) => (
                   <button
                     key={l.href}
                     onClick={() => {
