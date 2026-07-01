@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -28,8 +26,6 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 export function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     mode: "onChange",
@@ -41,7 +37,6 @@ export function Contact() {
   });
 
   async function onSubmit(data: ContactFormValues) {
-    setIsSubmitting(true);
     try {
       // Simular envio
       await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -56,8 +51,6 @@ export function Contact() {
         description: "Tente novamente em alguns instantes.",
         duration: 4000,
       });
-    } finally {
-      setIsSubmitting(false);
     }
   }
 
@@ -101,9 +94,9 @@ export function Contact() {
                 text: "Segunda a sexta",
                 sub: "09h às 18h.",
               },
-            ].map((card, i) => (
+            ].map((card) => (
               <div
-                key={i}
+                key={card.title}
                 className="rounded-[2rem] bg-white/40 backdrop-blur-md border border-white/60 shadow-soft p-7 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -141,7 +134,7 @@ export function Contact() {
                             form.formState.errors.name ? "border-destructive" : ""
                           }`}
                           {...field}
-                          disabled={isSubmitting}
+                          disabled={form.formState.isSubmitting}
                         />
                       </FormControl>
                       <FormMessage className="text-sm text-destructive" />
@@ -162,7 +155,7 @@ export function Contact() {
                             form.formState.errors.email ? "border-destructive" : ""
                           }`}
                           {...field}
-                          disabled={isSubmitting}
+                          disabled={form.formState.isSubmitting}
                         />
                       </FormControl>
                       <FormMessage className="text-sm text-destructive" />
@@ -184,7 +177,7 @@ export function Contact() {
                             form.formState.errors.message ? "border-destructive" : ""
                           }`}
                           {...field}
-                          disabled={isSubmitting}
+                          disabled={form.formState.isSubmitting}
                         />
                       </FormControl>
                       <FormMessage className="text-sm text-destructive" />
@@ -193,11 +186,11 @@ export function Contact() {
                 />
                 <Button
                   type="submit"
-                  disabled={isSubmitting || !form.formState.isValid}
+                  disabled={form.formState.isSubmitting || !form.formState.isValid}
                   className="rounded-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full lg:w-auto h-12 px-8 gap-2 disabled:opacity-50 disabled:pointer-events-none"
                   aria-label="Enviar formulário de contato"
                 >
-                  {isSubmitting ? (
+                  {form.formState.isSubmitting ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
                       Enviando...

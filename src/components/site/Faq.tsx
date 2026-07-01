@@ -47,10 +47,10 @@ export function Faq() {
           </p>
         </div>
         <Accordion type="single" collapsible className="md:col-span-7 space-y-3">
-          {faqs.map((f, i) => (
+          {faqs.map((f) => (
             <AccordionItem
-              key={i}
-              value={`item-${i}`}
+              key={f.q}
+              value={f.q}
               className="border border-border/70 rounded-2xl px-6 bg-card"
             >
               <AccordionTrigger className="text-left text-base font-medium hover:no-underline py-5">

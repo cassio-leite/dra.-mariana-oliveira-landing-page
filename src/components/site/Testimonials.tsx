@@ -52,8 +52,9 @@ export function Testimonials() {
         {/* Prova Social */}
         <div className="flex flex-col items-center gap-6 mb-20 text-center">
           <div className="flex gap-1 text-sage-deep">
+            {/* Lista estática de estrelas, sem reordenação */}
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={20} fill="currentColor" strokeWidth={0} />
+              <Star key={`star-${i}`} size={20} fill="currentColor" strokeWidth={0} />
             ))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm md:text-base text-muted-foreground">
@@ -65,16 +66,14 @@ export function Testimonials() {
 
         {/* Grade de Depoimentos */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((t, idx) => (
-            <BlurFade key={idx} delay={t.delay}>
+          {testimonials.map((t) => (
+            <BlurFade key={t.name} delay={t.delay}>
               <div className="flex h-full flex-col rounded-3xl bg-white/50 backdrop-blur-sm border border-border/60 p-8 shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-lg">
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex gap-1 text-sage-deep/50">
-                    <Star size={16} fill="currentColor" strokeWidth={0} />
-                    <Star size={16} fill="currentColor" strokeWidth={0} />
-                    <Star size={16} fill="currentColor" strokeWidth={0} />
-                    <Star size={16} fill="currentColor" strokeWidth={0} />
-                    <Star size={16} fill="currentColor" strokeWidth={0} />
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} size={16} fill="currentColor" strokeWidth={0} />
+                    ))}
                   </div>
                   <Quote className="text-sage-deep/20" size={32} />
                 </div>
