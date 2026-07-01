@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
@@ -16,7 +16,17 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const pendingScrollTargetRef = useRef<string | null>(null);
+  const [pendingScroll, setPendingScroll] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isOpen && pendingScroll) {
+      const timer = setTimeout(() => {
+        document.querySelector(pendingScroll)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setPendingScroll(null);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, pendingScroll]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,30 +117,14 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               className="w-full sm:max-w-sm pt-20"
-              onCloseAutoFocus={(e) => {
-                if (pendingScrollTargetRef.current) {
-                  e.preventDefault();
-                  const target = pendingScrollTargetRef.current;
-                  pendingScrollTargetRef.current = null;
-
-                  const element = document.querySelector(target);
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth", block: "start" });
-                    if (element instanceof HTMLElement) {
-                      element.focus({ preventScroll: true });
-                    }
-                  }
-                }
-              }}
             >
               <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
               <nav className="flex flex-col gap-6">
                 {links.map((l) => (
                   <button
                     key={l.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      pendingScrollTargetRef.current = l.href;
+                    onClick={() => {
+                      setPendingScroll(l.href);
                       setIsOpen(false);
                     }}
                     className={`text-xl font-medium text-left w-full py-2 transition-colors duration-300 pointer-events-auto ${
@@ -146,9 +140,8 @@ export function Navbar() {
                 <Button
                   size="lg"
                   className="rounded-full w-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    pendingScrollTargetRef.current = "#contato";
+                  onClick={() => {
+                    setPendingScroll("#contato");
                     setIsOpen(false);
                   }}
                 >
