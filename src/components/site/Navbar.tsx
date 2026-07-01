@@ -1,25 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { Menu, X } from "lucide-react";
 import { navigationLinks } from "@/lib/navigation";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [pendingScroll, setPendingScroll] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!isOpen && pendingScroll) {
-      const timer = setTimeout(() => {
-        document.querySelector(pendingScroll)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setPendingScroll(null);
-      }, 300);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen, pendingScroll]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,50 +89,44 @@ export function Navbar() {
             <a href="#contato">Agendar consulta</a>
           </Button>
         </div>
-        <div className="md:hidden">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Abrir menu de navegação">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent
-              className="w-full sm:max-w-sm pt-20"
-            >
-              <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
-              <nav className="flex flex-col gap-6">
-                {navigationLinks.map((l) => (
-                  <button
-                    key={l.href}
-                    onClick={() => {
-                      setPendingScroll(l.href);
-                      setIsOpen(false);
-                    }}
-                    className={`text-xl font-medium text-left w-full py-2 transition-colors duration-300 pointer-events-auto ${
-                      activeSection === l.href
-                        ? "text-sage-deep font-semibold"
-                        : "text-foreground hover:text-sage-deep"
-                    }`}
-                  >
-                    {l.label}
-                  </button>
-                ))}
-                <div className="h-px bg-border my-2" />
-                <Button
-                  size="lg"
-                  className="rounded-full w-full shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                  onClick={() => {
-                    setPendingScroll("#contato");
-                    setIsOpen(false);
-                  }}
-                >
-                  Agendar consulta
-                </Button>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
+        
+        {/* Mobile Toggle Button */}
+        <button
+          type="button"
+          className="md:hidden p-2 text-foreground"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+        >
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </nav>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden overflow-hidden border-b border-border/60 absolute top-full left-0 right-0 transition-[max-height,opacity] duration-500 ease-out bg-background ${
+          isOpen ? "max-h-[100vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        }`}
+      >
+        <nav className="px-6 py-6 flex flex-col gap-4">
+          {navigationLinks.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setIsOpen(false)}
+              className={`text-xl py-2 transition-colors duration-300 ${
+                activeSection === l.href
+                  ? "text-sage-deep font-semibold"
+                  : "text-foreground hover:text-sage-deep"
+              }`}
+            >
+              {l.label}
+            </a>
+          ))}
+          <Button asChild className="mt-4 rounded-full w-full">
+            <a href="#contato" onClick={() => setIsOpen(false)}>Agendar consulta</a>
+          </Button>
+        </nav>
+      </div>
     </header>
   );
 }
