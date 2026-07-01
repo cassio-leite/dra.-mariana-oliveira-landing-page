@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { ArrowRight, Calendar, Globe, MapPin } from "lucide-react";
+import * as anim from "@/lib/animations";
 
 export function Hero() {
   return (
@@ -72,7 +73,7 @@ export function Hero() {
         {/* Left Column: Text & CTAs */}
         <div className="md:col-span-6 flex flex-col items-center md:items-start justify-center space-y-10 lg:pr-6 text-center md:text-left">
           <div className="space-y-6">
-            <BlurFade delay={0.05}>
+            <BlurFade delay={anim.STAGGER_SMALL}>
               <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.18em] text-sage-deep bg-sage-soft/20 border border-sage/15 backdrop-blur-sm shadow-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage opacity-75"></span>
@@ -82,7 +83,7 @@ export function Hero() {
               </div>
             </BlurFade>
 
-            <BlurFade delay={0.15}>
+            <BlurFade delay={anim.STAGGER_MEDIUM + anim.STAGGER_SMALL}>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.08] tracking-tight text-foreground">
                 Um espaço seguro para
                 <span className="block italic font-normal text-sage-deep mt-1">
@@ -92,7 +93,7 @@ export function Hero() {
               </h1>
             </BlurFade>
 
-            <BlurFade delay={0.25}>
+            <BlurFade delay={anim.STAGGER_MEDIUM * 2 + anim.STAGGER_SMALL}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed font-light">
                 Psicoterapia individual para adultos que buscam clareza, equilíbrio emocional e uma
                 vida com mais propósito.
@@ -100,7 +101,7 @@ export function Hero() {
             </BlurFade>
           </div>
 
-          <BlurFade delay={0.35}>
+          <BlurFade delay={anim.STAGGER_MEDIUM * 3 + anim.STAGGER_SMALL}>
             <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-4 pt-2">
               <Button
                 asChild
@@ -128,7 +129,7 @@ export function Hero() {
             </div>
           </BlurFade>
 
-          <BlurFade delay={0.45}>
+          <BlurFade delay={anim.STAGGER_MEDIUM * 4 + anim.STAGGER_SMALL}>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2.5 bg-sage-soft/10 px-3.5 py-1.5 rounded-full border border-sage/5">
                 <Globe className="h-4 w-4 text-sage" />
@@ -144,7 +145,7 @@ export function Hero() {
 
         {/* Right Column: Hero Image Composition */}
         <div className="relative md:col-span-6 flex justify-center lg:justify-end">
-          <BlurFade delay={0.2} className="relative w-full max-w-[480px]">
+          <BlurFade delay={anim.STAGGER_MEDIUM} className="relative w-full max-w-[480px]">
             {/* Ambient soft glow background */}
             <div
               aria-hidden
@@ -172,14 +173,16 @@ export function Hero() {
                 alt="Retrato da Dra. Mariana Oliveira, psicóloga clínica"
                 width={896}
                 height={1152}
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
 
             {/* Card 1: Próximos horários */}
             <BlurFade
-              delay={0.4}
+              delay={anim.STAGGER_MEDIUM * 4}
               className="absolute -bottom-8 -left-6 hidden sm:block max-w-[240px]"
             >
               <div
@@ -201,7 +204,7 @@ export function Hero() {
             </BlurFade>
 
             {/* Card 2: Anos de experiência */}
-            <BlurFade delay={0.5} className="absolute -top-6 -right-4 hidden sm:block">
+            <BlurFade delay={anim.STAGGER_MEDIUM * 5} className="absolute -top-6 -right-4 hidden sm:block">
               <div
                 className="flex items-center gap-3 bg-card/95 backdrop-blur-md rounded-full pl-2 pr-5 py-2 border border-sage/10 shadow-md"
                 style={{ boxShadow: "var(--shadow-soft)" }}
