@@ -19,6 +19,7 @@ export function Navbar() {
           </span>
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           {navigationLinks.map((l) => (
             <Link
@@ -37,7 +38,7 @@ export function Navbar() {
           <Button
             asChild
             size="sm"
-            className="hidden sm:inline-flex rounded-full px-5 shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            className="hidden sm:inline-flex rounded-full px-5 shadow-soft transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] touch-manipulation"
           >
             <Link to="/" hash="contato">Agendar consulta</Link>
           </Button>
@@ -47,28 +48,29 @@ export function Navbar() {
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden grid place-items-center w-10 h-10 rounded-full border border-border/60 text-foreground hover:bg-secondary/60 transition-all duration-300"
+            className="md:hidden grid place-items-center w-10 h-10 rounded-full border border-border/60 text-foreground hover:bg-secondary/60 transition-all duration-300 touch-manipulation"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - Refatorado para performance */}
       <div
-        className={`md:hidden overflow-hidden border-b border-border/60 absolute top-full left-0 right-0 transition-[max-height,opacity] duration-500 ease-out bg-background ${
-          open ? "max-h-[calc(100vh-80px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        className={`md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/60 transition-all duration-300 ease-in-out origin-top ${
+          open 
+            ? "opacity-100 scale-y-100 translate-y-0" 
+            : "opacity-0 scale-y-0 -translate-y-5 pointer-events-none"
         }`}
       >
-        <nav className="px-4 sm:px-6 py-6 flex flex-col gap-1 bg-background">
+        <nav className="px-4 sm:px-6 py-6 flex flex-col gap-1">
           {navigationLinks.map((l) => (
             <Link
               key={l.hash}
               to={l.to}
               hash={l.hash}
               onClick={() => setOpen(false)}
-              className="py-3 px-3 rounded-xl text-base text-foreground hover:bg-secondary/60 transition"
-              activeProps={{ className: "bg-secondary text-primary font-medium" }}
+              className="py-4 px-3 text-lg text-foreground hover:bg-secondary/60 transition touch-manipulation"
             >
               {l.label}
             </Link>
@@ -77,7 +79,7 @@ export function Navbar() {
             to="/"
             hash="contato"
             onClick={() => setOpen(false)}
-            className="mt-3 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-medium"
+            className="mt-3 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-5 py-3 text-base font-medium touch-manipulation"
           >
             Agendar consulta
           </Link>
